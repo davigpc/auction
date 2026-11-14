@@ -8,7 +8,6 @@ import { CardTypesModule } from './card-types/card-types.module';
 import { CardsModule } from './cards/cards.module';
 import { AuctionJobsModule } from './auction-jobs/auction-jobs.module';
 import { AuctionsModule } from './auctions/auctions.module';
-import { BidsModule } from './bids/bids.module';
 import { RealtimeModule } from './realtime/realtime.module';
 
 @Module({
@@ -22,7 +21,6 @@ import { RealtimeModule } from './realtime/realtime.module';
     CardsModule,
     AuctionJobsModule,
     AuctionsModule,
-    BidsModule,
     RealtimeModule,
   ],
 })
