@@ -23,5 +23,7 @@ COPY package*.json ./
 RUN npm ci --omit=dev
 # Bring in the compiled app from the build stage instead of copying source files
 COPY --from=build /app/dist ./dist
+# Scripts operacionais do experimento (migracao e seed), em JS puro
+COPY --from=build /app/scripts ./scripts
 EXPOSE 3000
 CMD ["node", "dist/main.js"]
