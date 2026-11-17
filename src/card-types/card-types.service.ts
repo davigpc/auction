@@ -3,7 +3,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CardType } from './card-type.entity';
 import { CardTypeResponse } from './card-types.types';
-import { CreateCardTypeDto } from './dto/create-card-type.dto';
 
 @Injectable()
 export class CardTypesService {
@@ -11,18 +10,6 @@ export class CardTypesService {
     @InjectRepository(CardType)
     private readonly cardTypesRepository: Repository<CardType>,
   ) {}
-
-  async create(input: CreateCardTypeDto): Promise<CardTypeResponse> {
-    const cardType = this.cardTypesRepository.create({
-      name: input.name.trim(),
-      attack: input.attack,
-      midfield: input.midfield,
-      defense: input.defense,
-    });
-
-    const savedCardType = await this.cardTypesRepository.save(cardType);
-    return this.toResponse(savedCardType);
-  }
 
   async findAll(): Promise<CardTypeResponse[]> {
     const cardTypes = await this.cardTypesRepository.find({

@@ -10,8 +10,3 @@ export interface CardResponse {
   createdAt: Date;
   updatedAt: Date;
 }
-
-export interface CardsPage {
-  items: CardResponse[];
-  nextCursor: string | null;
-}
