@@ -1,12 +1,7 @@
-import 'reflect-metadata';
+﻿import 'reflect-metadata';
 import { config } from 'dotenv';
 import { DataSource } from 'typeorm';
 import { User } from '../users/user.entity';
-import { CardType } from '../card-types/card-type.entity';
-import { Card } from '../cards/card.entity';
-import { Auction } from '../auctions/auction.entity';
-import { Bid } from '../bids/bid.entity';
-import { CardTransfer } from '../cards/card-transfer.entity';
 
 config();
 
@@ -17,7 +12,7 @@ export default new DataSource({
   username: process.env.DATABASE_USER,
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE_NAME,
-  entities: [User, CardType, Card, Auction, Bid, CardTransfer],
+  entities: [User],
   migrations: ['src/database/migrations/*.ts'],
   synchronize: false,
 });
